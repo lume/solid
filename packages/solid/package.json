@@ -77,6 +77,7 @@
     "build:types-web": "tsc --project ./web/tsconfig.json && tsconfig-replace-paths --project ./web/tsconfig.types.json",
     "build:types-html": "tsc --project ./html/tsconfig.json",
     "build:types-h": "tsc --project ./h/tsconfig.json",
+    "clean": "rimraf ./src/render/jsx.ts ./src/static/jsx.ts ./web/src/runtime.d.ts ./web/types/runtime.d.ts ./web/server/syncSSR.d.ts ./web/server-async/asyncSSR.d.ts",
     "bench": "node --allow-natives-syntax bench/bench.js",
     "test": "jest && npm run test:types",
     "test:coverage": "jest --coverage && npm run test:types",

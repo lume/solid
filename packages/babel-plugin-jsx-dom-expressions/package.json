@@ -13,6 +13,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
+    "clean": "rimraf ./index.js",
     "test": "npm run build && jest",
     "test:coverage": "npm run build && jest --coverage",
     "prepublishOnly": "npm run build"
