@@ -1,7 +1,7 @@
 {
   "name": "solid-js",
   "description": "A declarative JavaScript library for building user interfaces.",
-  "version": "0.22.9",
+  "version": "0.22.10",
   "author": "Ryan Carniato",
   "license": "MIT",
   "homepage": "https://github.com/ryansolid/solid#readme",
@@ -69,10 +69,10 @@
   },
   "scripts": {
     "prebuild": "rimraf dist/* types/*",
-    "build": "npm-run-all -cnl build:copy build:*",
-    "build:copy": "gulp -f ./gulpfile.cjs copy",
+    "build": "npm-run-all -cnl build:*",
     "build:link": "symlink-dir . node_modules/solid-js",
-    "build:js": "ncp ../../node_modules/dom-expressions/src/jsx.ts ./src/render/jsx.ts && ncp ../../node_modules/dom-expressions/src/jsx.ts ./src/static/jsx.ts && rollup -c",
+    "build:copy": "ncp ./node_modules/dom-expressions/src/jsx.ts ./src/render/jsx.ts && ncp ./node_modules/dom-expressions/src/jsx.ts ./src/static/jsx.ts && ncp ./node_modules/dom-expressions/src/runtime.d.ts ./web/src/runtime.d.ts && ncp ./node_modules/dom-expressions/src/runtime.d.ts ./web/types/runtime.d.ts && ncp ./node_modules/dom-expressions/src/syncSSR.d.ts ./web/server/syncSSR.d.ts && ncp ./node_modules/dom-expressions/src/asyncSSR.d.ts ./web/server-async/asyncSSR.d.ts",
+    "build:js": "rollup -c",
     "build:types": "tsc",
     "build:types-web": "tsc --project ./web/tsconfig.json && tsconfig-replace-paths --project ./web/tsconfig.types.json",
     "build:types-html": "tsc --project ./html/tsconfig.json",
